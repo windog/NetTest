@@ -159,7 +159,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d("id is", id);
                 Log.d("p is", p);
                 Log.d("m is", m);
-
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -169,6 +168,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /*此方法解析Json ，用 Gson */
     private void parseJsonWithGson(String jsonData) {
         Gson gson = new Gson();
+        //  TypeToken是Gson提供的类，用于在运行时获取泛型
+        //  fromJson(String json, Type typeOfT);
         List<JingDongPrice> priceList = gson.fromJson(jsonData, new TypeToken<List<JingDongPrice>>() {}.getType());
         for (JingDongPrice price : priceList) {
             Log.d("Gson", "id is" + price.getId());
