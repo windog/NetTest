@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Gson gson = new Gson();
         //  TypeToken是Gson提供的类，用于在运行时获取泛型
         //  fromJson(String json, Type typeOfT);
-        // new对象时，后面没有{}就是普通类的对象，有了{}就代表是匿名内部类的对象
+        // new对象时，后面没有{}就是普通类的对象，有了{}就代表是匿名内部类的实例，或者是实现了某个接口的匿名内部类的实例
         // new了一个TypeToken的对象（TypeToken是个匿名内部类），把List<JingDongPrice>传进去，并调用getType()方法，就可以动态获取泛型
         List<JingDongPrice> priceList = gson.fromJson(jsonData, new TypeToken<List<JingDongPrice>>() {}.getType());
         for (JingDongPrice price : priceList) {
